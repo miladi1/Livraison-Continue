@@ -1,4 +1,4 @@
 FROM nginx:1.17.1-alpine
-COPY ./dist/myapp2 /usr/share/nginx/html
+COPY ./dist/my-apps /usr/share/nginx/html
 EXPOSE 4200
 CMD ["nginx", "-g", "daemon off;"]
