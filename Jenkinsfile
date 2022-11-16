@@ -4,7 +4,7 @@ pipeline {
         stage("git pull"){
             steps{
               
-                git branch: 'main', 
+                git branch: 'master', 
                 credentialsId: 'c37368d7-184e-48ce-a93d-abf7163ea4ee', 
                 url: 'https://github.com/miladi1/Livraison-Continue.git'
                     
