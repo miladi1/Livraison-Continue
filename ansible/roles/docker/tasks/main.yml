@@ -1,7 +1,19 @@
 ---
-
-- hosts: localhost                
-  gather_facts: true
-  become: true
-  roles:
-   - { role: docker }
+# tasks file for docker
+- name: create image docker
+  docker_image:
+    name: 29419909/livraison-continue:latest
+    build:
+      path: /var/lib/jenkins/workspace/Livraison-Continue
+      pull: no
+    source: build
+    state: present
+    force_source: true
+- name: run container docker 
+  docker_container:
+    name: myapp_container
+    image: 29419909/livraison-continue:latest
+    state: started
+    recreate: true
+    ports:
+      - "4200:80"
